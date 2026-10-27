@@ -1,0 +1,27 @@
+export const findingCatalog = {
+  command_missing: ['缺少启动命令', '填写该服务官方文档提供的 command，AgentDoctor 不会猜测应运行哪个程序。'],
+  command_not_found: ['启动程序不存在', '检查运行时是否安装，或将 command 更新为当前可用的绝对路径。'],
+  command_not_executable: ['启动文件无法执行', '确认目标是可执行程序；Windows 的 .cmd 启动器需要客户端兼容处理。'],
+  runtime_not_found: ['启动器依赖的运行时缺失', '检查 node、uv 或 bun 是否存在，并重启客户端以更新 PATH。'],
+  relative_command_path: ['启动路径依赖当前目录', '使用已经确认存在的绝对程序路径，避免不同客户端目录不同。'],
+  cwd_not_found: ['工作目录不存在', '在编辑器中将 cwd 改为实际存在的目录，避免自动创建错误位置。'],
+  relative_cwd: ['工作目录使用了相对路径', '客户端对相对 cwd 的处理可能不同，请核对并使用绝对路径。'],
+  path_context: ['客户端可能使用不同的 PATH', '当前终端能找到命令不代表桌面客户端也能找到；支持的程序可固定绝对路径。'],
+  placeholder: ['配置包含未解析占位符', '按客户端文档确认变量语法。AgentDoctor 不会读取或展开密钥占位符。'],
+  empty_env: ['环境变量值为空', '通过客户端支持的安全配置方式补充所需变量。'],
+  server_name_conflict: ['服务名称存在冲突', '同名或仅大小写不同的定义可能互相遮盖，请检查配置作用域。'],
+  disabled_server: ['服务被显式停用', '这是信息提示；停用的服务不参与启动检查。'],
+  unsupported_disabled_flag: ['停用标记可能不被客户端识别', 'enabled = false 仅在支持它的客户端生效；请按该客户端文档停用服务。为尊重配置意图，AgentDoctor 不会主动探测或修复此项。'],
+  unsupported_transport: ['远程连接尚未验证', '静态引擎不连接 HTTP / SSE 服务，请在客户端或 MCP Inspector 中验证。'],
+  bearer_token_env_missing: ['远程认证变量未就绪', '当前进程中没有发现所需的认证环境变量；没有读取或输出其值。'],
+  windows_npx_launcher: ['Windows 包启动器兼容性', '可改用本机 Node.js 直接执行 npm 附带的 npx-cli.js，保留参数并避免 cmd shell 转义。'],
+  config_parse_error: ['配置文件无法解析', '修正 JSON / JSONC / TOML 格式后重新扫描。'],
+  engine_unavailable: ['静态诊断引擎未就绪', '在项目目录运行 npm run setup:engine，下载并校验官方引擎。'],
+  environment_missing: ['必需运行时未找到', '安装对应运行时，重新打开客户端和 AgentDoctor。'],
+};
+export const sourceCredits = [
+  { name: 'MCP Doctor', role: '实际复用的 Rust 静态诊断引擎', version: 'v0.1.17', license: 'MIT', url: 'https://github.com/Tinkora/mcp_doctor' },
+  { name: 'MCP TypeScript SDK', role: '按需执行 stdio 握手与工具清单查询', version: '1.x', license: 'MIT', url: 'https://github.com/modelcontextprotocol/typescript-sdk' },
+  { name: 'jsonc-parser', role: '保留注释的 JSONC 局部修复', version: '3.x', license: 'MIT', url: 'https://github.com/microsoft/node-jsonc-parser' },
+  { name: 'React + Lucide', role: '交互界面与图标', version: '19.x / 0.x', license: 'MIT / ISC', url: 'https://github.com/lucide-icons/lucide' },
+];

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/
+.agentdoctor/
+vendor/mcp-doctor/bin/
+*.tsbuildinfo
+*.log
+test-results/
+examples/demo-workspace*/
