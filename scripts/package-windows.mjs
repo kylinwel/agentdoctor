@@ -16,7 +16,7 @@ await cp(join(root, 'node_modules/electron/dist'), output, { recursive: true, er
 await rename(join(output, 'electron.exe'), join(output, 'AgentDoctor.exe'));
 const app = join(output, 'resources/app');
 await mkdir(app, { recursive: true });
-for (const file of ['package.json','package-lock.json','LICENSE','README.md','README.zh-CN.md','THIRD_PARTY_NOTICES.md','dist','server','desktop','docs','vendor','examples/fixture-server.mjs']) {
+for (const file of ['package.json','package-lock.json','LICENSE','README.md','README.zh-CN.md','CONTRIBUTING.md','THIRD_PARTY_NOTICES.md','dist','server','desktop','docs','vendor','examples/fixture-server.mjs']) {
   await cp(join(root, file), join(app, file), { recursive: true });
 }
 const npm = process.env.npm_execpath;
